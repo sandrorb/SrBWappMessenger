@@ -1,0 +1,36 @@
+The Twilio Java Helper Library
+https://www.twilio.com/docs/libraries/java
+
+
+Exception in thread "main" com.twilio.exception.AuthenticationException: Username can not be null
+	at com.twilio.Twilio.setUsername(Twilio.java:88)
+	at com.twilio.Twilio.init(Twilio.java:62)
+	at srb.Main.main(Main.java:14)
+	
+//https://timberwolf-mastiff-9776.twil.io/demo-reply
+//https://www.twilio.com/docs/messaging/guides/webhook-request
+
+	
+	
+	// Get your Account SID and Auth Token from https://twilio.com/console
+	// To set up environment variables, see http://twil.io/secure
+//	public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+//	public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");	
+//	Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+//	OUTRA FORMA:
+//	// Find your Account SID and Auth Token at twilio.com/console
+//	// DANGER! This is insecure. See http://twil.io/secure
+//	String accountSid = "ACXXXXXX";
+//	String authToken = "XXXXXXXX";
+//	Twilio.init(accountSid, authToken);
+//	Twilio.setRegion("au1");
+//	ENVIO DE SMS
+//	Twilio.setEdge("sydney");
+//	Message message = Message.creator(
+//		    new PhoneNumber("+15558881234"),  // To number
+//		    new PhoneNumber("+15559994321"),  // From number
+//		    "Hello world!"                    // SMS body
+//		).create();
+//
+//		System.out.println(message.getSid());	
