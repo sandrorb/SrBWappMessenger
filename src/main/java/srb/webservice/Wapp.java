@@ -55,6 +55,7 @@ public class Wapp {
 		}catch(ApiException e) {
 			sb.append("ERRO!!!\n");
 			sb.append(e.toString() + "\n");
+			return sb.toString();
 		}
 		
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
