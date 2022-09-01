@@ -39,8 +39,11 @@ public class Wapp {
 		
 		String bodyMsg = wmsgModel.getBodyMsg();
 		
+		
+		Message msg = null;
+		
 		try {
-			Message msg = Message.creator( phoneNumberDest, phoneNumberOrigin, bodyMsg).create();
+			msg = Message.creator( phoneNumberDest, phoneNumberOrigin, bodyMsg).create();
 		}catch(ApiException e) {
 			sb.append("ERRO!!!\n");
 			sb.append(e.toString() + "\n");
@@ -49,6 +52,10 @@ public class Wapp {
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
 		sb.append("Para = " + phoneNumberDest.toString() + "\n");
 		sb.append("Mensagem: " + bodyMsg);
+		
+		if(msg != null) {
+			sb.append("\n\n\n" + msg.toString()+"\n\n\n");
+		}
 		
 		return sb.toString();	
 	}
