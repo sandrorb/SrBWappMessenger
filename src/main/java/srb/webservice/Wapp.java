@@ -52,10 +52,10 @@ public class Wapp {
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
 		sb.append("Para = " + phoneNumberDest.toString() + "\n");
 		
-		//sb.append("Mensagem: " + bodyMsg);
+		sb.append("Mensagem: " + bodyMsg);
 		
 		if(msg != null) {
-			sb.append("\n\n\n" + msg.toString()+"\n\n");
+//			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
 		
 		return sb.toString();	
