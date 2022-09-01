@@ -34,9 +34,10 @@
     <input type="text" class="form-control" id="message" aria-describedby="emailHelp" placeholder="Mensagem">
   </div>
   <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  <button type="button" class="btn btn-primary buttonsalvarnovo" onclick="enviar()">Enviar</button>
 </form>
 
-<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="enviar()">Enviar</button>
+<input type="text" id="msgRetorno" class="form-control">
 
 <script type="text/javascript">	
 		function enviar(){
@@ -47,10 +48,10 @@
  	        $.ajax({
 	        	method: "POST",
 	        	url: "sendmsg",
-	        	data: JSON.stringify( {id : id, nome : nome} ),
+	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
 	        	success: function(response){
-					alert('xxxxxxxxxxxx');
+	        		$("#msgRetorno").val(response);
 	        	}
 	        }).fail(function(xhr, status, errorThrown){
 	        	alert("Erro ao enviar dados: " + xhr.responseText);
