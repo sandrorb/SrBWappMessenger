@@ -54,7 +54,7 @@ public class Wapp {
 		sb.append("Mensagem: " + bodyMsg);
 		
 		if(msg != null) {
-			sb.append("\n\n\n" + msg.toString()+"\n\n\n");
+			sb.append("\n\n\n" + msg.toString()+"\n\n\n\n");
 		}
 		
 		return sb.toString();	
