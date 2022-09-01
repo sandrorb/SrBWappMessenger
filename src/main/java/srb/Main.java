@@ -33,7 +33,7 @@ public class Main {
 	
 		String body = "SrB: Isso é um teste";
 		 
-		Message msg = Message.creator( phoneNumberOrigin, phoneNumberDest, body).create();
+		Message msg = Message.creator( phoneNumberDest, phoneNumberOrigin, body).create();
 		
 		System.out.println(msg.getSid());		
 
