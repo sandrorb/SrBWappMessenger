@@ -1,1 +1,67 @@
-teste
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Aplicativo de Mensagens (Sandro Boschetti)</title>
+    
+    <style>
+    	input {width: 50%; background-color: yellow;}
+    	.form-control {width: 20%;} 
+    </style>
+  </head>
+  
+  
+  <body>
+
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Número de Origem</label>
+    <input type="text" class="form-control" id="phoneNumberFrom" aria-describedby="emailHelp" placeholder="Entre com o número de origem">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Número de Destino</label>
+    <input type="text" class="form-control" id="phoneNumberTo" aria-describedby="emailHelp" placeholder="Entre com o número de destino">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Mensagem</label>
+    <input type="text" class="form-control" id="message" aria-describedby="emailHelp" placeholder="Mensagem">
+  </div>
+  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+</form>
+
+<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="enviar()">Enviar</button>
+
+<script type="text/javascript">	
+		function enviar(){
+	        var phoneNumberFrom = $("#phoneNumberFrom").val();
+	        var   phoneNumberTo = $("#phoneNumberTo").val();
+	        var   message = $("#message").val();
+	        
+ 	        $.ajax({
+	        	method: "POST",
+	        	url: "sendmsg",
+	        	data: JSON.stringify( {id : id, nome : nome} ),
+	        	contentType: "application/json; charset=utf-8",
+	        	success: function(response){
+					alert('xxxxxxxxxxxx');
+	        	}
+	        }).fail(function(xhr, status, errorThrown){
+	        	alert("Erro ao enviar dados: " + xhr.responseText);
+	           });
+		}
+</script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

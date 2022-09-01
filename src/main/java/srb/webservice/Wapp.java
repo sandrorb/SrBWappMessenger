@@ -22,44 +22,7 @@ public class Wapp {
 		sb.append("Você digitou: " + Body);
 		return sb.toString();
 	}
-	
-	
-	@PostMapping(value = "/sendmsgold")
-	public String teste(@RequestBody WmsgModel wmsgModel) {
 		
-		StringBuilder sb = new StringBuilder();
-		
-		Twilio.init(wmsgModel.getAccountSid(), wmsgModel.getAuthToken());
-		
-		String phoneNumberOriginStr = "whatsapp:" + wmsgModel.getPhoneNumberOriginStr();
-		String phoneNumberDestStr = "whatsapp:" + wmsgModel.getPhoneNumberDestStr();
-		
-		PhoneNumber phoneNumberOrigin = new PhoneNumber(phoneNumberOriginStr);
-		PhoneNumber phoneNumberDest = new PhoneNumber(phoneNumberDestStr);
-		
-		String bodyMsg = wmsgModel.getBodyMsg();
-		
-		Message msg = null;
-		
-		try {
-			msg = Message.creator( phoneNumberDest, phoneNumberOrigin, bodyMsg).create();
-		}catch(ApiException e) {
-			sb.append("ERRO!!!\n");
-			sb.append(e.toString() + "\n");
-		}
-		
-		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
-		sb.append("Para = " + phoneNumberDest.toString() + "\n");
-		
-		sb.append("Mensagem: " + bodyMsg);
-		
-		if(msg != null) {
-//			sb.append("\n\n\n" + msg.toString()+"\n\n");
-		}
-		
-		return sb.toString();	
-	}
-	
 	
 	/*
 	 * Ao tentar passar os 3 parâmetros pelo postman, os sinais de + dos telefones desaparecem.
@@ -101,8 +64,7 @@ public class Wapp {
 		if(msg != null) {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
-		
-		sb.append("As credenciais são obtidas via variáveis de ambiente\n");
+
 		
 		return sb.toString();	
 	}
