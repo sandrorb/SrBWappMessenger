@@ -39,7 +39,6 @@ public class Wapp {
 		
 		String bodyMsg = wmsgModel.getBodyMsg();
 		
-		
 		Message msg = null;
 		
 		try {
@@ -57,6 +56,9 @@ public class Wapp {
 		if(msg != null) {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
+		
+		String authtoken = System.getenv("AUTH_TOKEN");
+		sb.append("\n\n\nMeu string de autenticação é: " + authtoken+"\n\n\n");
 		
 		return sb.toString();	
 	}
