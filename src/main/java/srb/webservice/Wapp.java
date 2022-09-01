@@ -61,21 +61,27 @@ public class Wapp {
 	}
 	
 	
+	/*
+	 * Ao tentar passar os 3 parâmetros pelo postman, os sinais de + dos telefones desaparecem.
+	 * Então, em vez de fazer @RequestParam String phoneNumberFrom, vou tentar passar por Json e uma classe. Estava assim:
+	 * public String teste(@RequestParam String phoneNumberFrom, @RequestParam String phoneNumberTo, @RequestParam String message) {
+	 * public String teste(@RequestBody MsgModel msgModel) {
+	 */
 	@PostMapping(value = "/sendmsg")
-	public String teste(@RequestParam String phoneNumberFrom, @RequestParam String phoneNumberTo, @RequestParam String message) {
+	public String teste(@RequestBody MsgModel msgModel) {
 	
 		String accountSid = System.getenv("ACCOUNT_SID");
 		String authToken = System.getenv("AUTH_TOKEN");
 		
 		Twilio.init(accountSid, authToken);
 
-		String phoneNumberOriginStr = "whatsapp:" + phoneNumberFrom;
-		String phoneNumberDestStr = "whatsapp:" + phoneNumberTo;
+		String phoneNumberOriginStr = "whatsapp:" + msgModel.getPhoneNumberFrom();
+		String phoneNumberDestStr = "whatsapp:" + msgModel.getPhoneNumberTo();
 		
 		PhoneNumber phoneNumberOrigin = new PhoneNumber(phoneNumberOriginStr);
 		PhoneNumber phoneNumberDest = new PhoneNumber(phoneNumberDestStr);
 		
-		String bodyMsg = message;
+		String bodyMsg = msgModel.getMessage();
 		
 		Message msg = null;
 
