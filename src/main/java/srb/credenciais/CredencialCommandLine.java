@@ -1,8 +1,8 @@
-package srb;
+package srb.credenciais;
 
 import java.util.Scanner;
 
-public class Credencial {
+public class CredencialCommandLine {
 	
 	public static String getAccountSid() {
 		Scanner scanner = new Scanner(System.in);

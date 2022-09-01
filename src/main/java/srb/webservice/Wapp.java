@@ -62,5 +62,43 @@ public class Wapp {
 	}
 	
 	
+	@PostMapping(value = "/sendmsg2")
+	public String teste(@RequestParam String accountSid, @RequestParam String authToken) {
+
+		StringBuilder sb = new StringBuilder();
+		
+		Twilio.init(accountSid, authToken);
+
+		String phoneNumberOriginStr = "whatsapp:+14155238886";
+		String phoneNumberDestStr = "whatsapp:+553183349238";
+		
+		PhoneNumber phoneNumberOrigin = new PhoneNumber(phoneNumberOriginStr);
+		PhoneNumber phoneNumberDest = new PhoneNumber(phoneNumberDestStr);
+		
+		String bodyMsg = "Apenas um teste com o novo endpoint.";
+		
+		
+		Message msg = null;
+		
+		try {
+			msg = Message.creator( phoneNumberDest, phoneNumberOrigin, bodyMsg).create();
+		}catch(ApiException e) {
+			sb.append("ERRO!!!\n");
+			sb.append(e.toString() + "\n");
+		}
+		
+		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
+		sb.append("Para = " + phoneNumberDest.toString() + "\n");
+		
+		sb.append("Mensagem: " + bodyMsg);
+		
+		if(msg != null) {
+//			sb.append("\n\n\n" + msg.toString()+"\n\n");
+		}
+		
+		return "Sucesso!";	
+	}
+	
+	
 }
 
