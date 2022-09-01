@@ -46,7 +46,7 @@
 	        
  	        $.ajax({
 	        	method: "POST",
-	        	url: "/sendmsg",
+	        	url: "https://srbwappmessenger.herokuapp.com/sendmsg",
 	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
 	        	success: function(response){
