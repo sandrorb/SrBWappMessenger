@@ -6,7 +6,7 @@ import com.twilio.type.PhoneNumber;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void srbmain(String[] args) {
 
 		
 		MyProperties.init();
