@@ -42,9 +42,11 @@
 	        var   phoneNumberTo = $("#phoneNumberTo").val();
 	        var   message = $("#message").val();
 	        
+	        $("#msgRetorno").val("xxxxx");
+	        
  	        $.ajax({
 	        	method: "POST",
-	        	url: "sendmsg",
+	        	url: "/sendmsg",
 	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
 	        	success: function(response){
