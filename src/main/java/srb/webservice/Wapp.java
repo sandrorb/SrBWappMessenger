@@ -36,6 +36,8 @@ public class Wapp {
 	@PostMapping(value = "/sendmsg")
 	@ResponseBody
 	public  ResponseEntity<String> enviaMsg(@RequestBody MsgModel msgModel) {
+		
+		System.out.println("Dentro do método enviaMsg do controller");
 	
 		String accountSid = System.getenv("ACCOUNT_SID");
 		String authToken = System.getenv("AUTH_TOKEN");
