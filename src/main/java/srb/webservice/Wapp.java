@@ -24,7 +24,7 @@ public class Wapp {
 	}
 	
 	
-	@PostMapping(value = "/sendmsg")
+	@PostMapping(value = "/sendmsgold")
 	public String teste(@RequestBody WmsgModel wmsgModel) {
 		
 		StringBuilder sb = new StringBuilder();
@@ -61,23 +61,25 @@ public class Wapp {
 	}
 	
 	
-	@PostMapping(value = "/sendmsg2")
-	public String teste(@RequestParam String accountSid, @RequestParam String authToken) {
-
-		StringBuilder sb = new StringBuilder();
+	@PostMapping(value = "/sendmsg")
+	public String teste(@RequestParam String phoneNumberFrom, @RequestParam String phoneNumberTo, @RequestParam String message) {
+	
+		String accountSid = System.getenv("ACCOUNT_SID");
+		String authToken = System.getenv("AUTH_TOKEN");
 		
 		Twilio.init(accountSid, authToken);
 
-		String phoneNumberOriginStr = "whatsapp:+14155238886";
-		String phoneNumberDestStr = "whatsapp:+553183349238";
+		String phoneNumberOriginStr = "whatsapp:" + phoneNumberFrom;
+		String phoneNumberDestStr = "whatsapp:" + phoneNumberTo;
 		
 		PhoneNumber phoneNumberOrigin = new PhoneNumber(phoneNumberOriginStr);
 		PhoneNumber phoneNumberDest = new PhoneNumber(phoneNumberDestStr);
 		
-		String bodyMsg = "Apenas um teste com o novo endpoint.";
-		
+		String bodyMsg = message;
 		
 		Message msg = null;
+
+		StringBuilder sb = new StringBuilder();
 		
 		try {
 			msg = Message.creator( phoneNumberDest, phoneNumberOrigin, bodyMsg).create();
@@ -88,15 +90,13 @@ public class Wapp {
 		
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
 		sb.append("Para = " + phoneNumberDest.toString() + "\n");
-		
 		sb.append("Mensagem: " + bodyMsg);
 		
 		if(msg != null) {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
 		
-		String authtoken = System.getenv("AUTH_TOKEN");
-		sb.append("\n\n\nMeu string de autenticação é: " + authtoken+"\n\n\n");
+		sb.append("As credenciais são obtidas via variáveis de ambiente\n");
 		
 		return sb.toString();	
 	}
