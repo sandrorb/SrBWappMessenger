@@ -1,5 +1,7 @@
 package srb.webservice;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +35,7 @@ public class Wapp {
 	 */
 	@PostMapping(value = "/sendmsg")
 	@ResponseBody
-	public String teste(@RequestBody MsgModel msgModel) {
+	public  ResponseEntity<String> enviaMsg(@RequestBody MsgModel msgModel) {
 	
 		String accountSid = System.getenv("ACCOUNT_SID");
 		String authToken = System.getenv("AUTH_TOKEN");
@@ -57,7 +59,7 @@ public class Wapp {
 		}catch(ApiException e) {
 			sb.append("ERRO!!!\n");
 			sb.append(e.toString() + "\n");
-			return sb.toString();
+			return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);
 		}
 		
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
@@ -69,7 +71,7 @@ public class Wapp {
 		}
 
 		
-		return sb.toString();	
+		return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);	
 	}
 	
 	
