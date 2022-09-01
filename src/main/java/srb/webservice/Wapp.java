@@ -98,7 +98,7 @@ public class Wapp {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
 		
-		return "Sucesso!";	
+		return sb.toString();	
 	}
 	
 	
