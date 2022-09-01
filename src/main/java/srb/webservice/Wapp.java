@@ -3,6 +3,7 @@ package srb.webservice;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.twilio.Twilio;
@@ -31,6 +32,7 @@ public class Wapp {
 	 * public String teste(@RequestBody MsgModel msgModel) {
 	 */
 	@PostMapping(value = "/sendmsg")
+	@ResponseBody
 	public String teste(@RequestBody MsgModel msgModel) {
 	
 		String accountSid = System.getenv("ACCOUNT_SID");
