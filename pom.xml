@@ -15,7 +15,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
   <artifactId>SrBWappMessenger</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>SrBWappMessenger</name>
-  <description>Teste testes</description> 
+  <description>Este é um sistema sendo desenvolvido para aprendizado da tecnologia
+               de envio de mensagens utilizando o sistema http://www.twilio.com</description> 
   
   	<properties>
 		<!--Tive de tirar a versão para todar no Heroku. Dica que vi no google-->
@@ -25,8 +26,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 		    configuração da JRE do projeto para JavaSE-11. Java 10 e depois 9 e de volta ao 1.8 -->
 		<!-- funcionou com a configuração em 1.8 e sem o var. Talvez sem o var funcione com uma versão maior -->
 		<!--java.version>14</java.version>-->
-	</properties>
-  
+	</properties> 
   
 	<dependencies>
 	
@@ -46,9 +46,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>	
-    
-        
-	
 		<dependency>
 			<groupId>com.twilio.sdk</groupId>
 			<artifactId>twilio</artifactId>
@@ -56,7 +53,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 		</dependency>
 	</dependencies>
 	
-		<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
