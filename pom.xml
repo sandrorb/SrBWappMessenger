@@ -15,6 +15,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
   <artifactId>SrBWappMessenger</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>SrBWappMessenger</name>
+  <description>Teste testes</description> 
+  
+  	<properties>
+		<!--Tive de tirar a versão para todar no Heroku. Dica que vi no google-->
+		<!--Aparentemente, ao retirar a versão, o maven escolhetu a versão JavaSE-1.8-->
+		<!--Mudei para 11 para ver se funciona, já que o projeto usa a palavra
+		    reservada var só suportada a partir da versão 10. Não adiantou. Mudei na
+		    configuração da JRE do projeto para JavaSE-11. Java 10 e depois 9 e de volta ao 1.8 -->
+		<!-- funcionou com a configuração em 1.8 e sem o var. Talvez sem o var funcione com uma versão maior -->
+		<!--java.version>14</java.version>-->
+	</properties>
+  
   
 	<dependencies>
 	
@@ -34,6 +46,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>	
+        
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <!-- O BD no Heroku é PG versão 14.4. Parece não haver pom para esta versão. -->
+		    <!-- Mas como ao por a versão última 42.4.1, o Eclipse informa que está
+		         fazendo um overrinding com a versão 42.3.6-->
+		    <!--<version>42.4.1</version>-->
+      		<scope>runtime</scope>
+		</dependency>        
+        
 	
 		<dependency>
 			<groupId>com.twilio.sdk</groupId>
