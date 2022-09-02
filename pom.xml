@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -14,7 +15,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
   <groupId>srb</groupId>
   <artifactId>SrBWappMessenger</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>SrBWappMessenger</name>
+  <name>MySrBWappMessenger</name>
   <description>Este é um sistema sendo desenvolvido para aprendizado da tecnologia
                de envio de mensagens utilizando o sistema http://www.twilio.com</description> 
   
@@ -45,7 +46,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>	
+        </dependency>
+        
 		<dependency>
 			<groupId>com.twilio.sdk</groupId>
 			<artifactId>twilio</artifactId>
@@ -75,5 +77,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 			</plugin>
 		</plugins>
 	</build>
+	
+	
 
 </project>

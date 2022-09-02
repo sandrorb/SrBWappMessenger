@@ -3,6 +3,7 @@ package srb.webservice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,7 +26,15 @@ public class Wapp {
 		sb.append("Você digitou: " + Body);
 		return sb.toString();
 	}
-		
+
+	@PostMapping(value = "/teste")
+	@ResponseBody
+	public ResponseEntity<String> resposta(@RequestParam String nome) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Telefone: " + nome );
+		System.out.println(nome);
+		return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);
+	}
 	
 	/*
 	 * Ao tentar passar os 3 parâmetros pelo postman, os sinais de + dos telefones desaparecem.
@@ -33,14 +42,16 @@ public class Wapp {
 	 * public String teste(@RequestParam String phoneNumberFrom, @RequestParam String phoneNumberTo, @RequestParam String message) {
 	 * public String teste(@RequestBody MsgModel msgModel) {
 	 */
-	@PostMapping(value = "/sendmsg")
+	@PostMapping(value = "/srbteste")
 	@ResponseBody
-	public  ResponseEntity<String> enviaMsg(@RequestBody MsgModel msgModel) {
+	public ResponseEntity<String> enviaMsg(@RequestBody MsgModel msgModel) {
 		
 		System.out.println("Dentro do método enviaMsg do controller");
 	
-		String accountSid = System.getenv("ACCOUNT_SID");
-		String authToken = System.getenv("AUTH_TOKEN");
+//		String accountSid = System.getenv("ACCOUNT_SID");
+//		String authToken = System.getenv("AUTH_TOKEN");
+		String accountSid = "AC93a9263d589268b253853e7ce298bd7f";
+		String authToken = "d9b63806d2e2e23791959e888569c7e1";
 		
 		Twilio.init(accountSid, authToken);
 

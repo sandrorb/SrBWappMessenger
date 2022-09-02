@@ -42,13 +42,14 @@
 	        var   phoneNumberTo = $("#phoneNumberTo").val();
 	        var   message = $("#message").val();
 	        
-	        $("#msgRetorno").val("xxxxx");
+	        $("#msgRetorno").val(message);
 	        
  	        $.ajax({
 	        	method: "POST",
-	        	url: "https://srbwappmessenger.herokuapp.com/sendmsg",
+	        	url: "http://localhost:8080/srbteste",
 	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
+	        	dataType: "json",
 	        	success: function(response){
 	        		$("#msgRetorno").val(response);
 	        	}
