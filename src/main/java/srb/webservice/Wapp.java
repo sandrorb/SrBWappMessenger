@@ -48,10 +48,8 @@ public class Wapp {
 		
 		System.out.println("Dentro do método enviaMsg do controller");
 	
-//		String accountSid = System.getenv("ACCOUNT_SID");
-//		String authToken = System.getenv("AUTH_TOKEN");
-		String accountSid = "AC93a9263d589268b253853e7ce298bd7f";
-		String authToken = "d9b63806d2e2e23791959e888569c7e1";
+		String accountSid = System.getenv("ACCOUNT_SID");
+		String authToken = System.getenv("AUTH_TOKEN");
 		
 		Twilio.init(accountSid, authToken);
 
