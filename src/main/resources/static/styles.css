@@ -22,7 +22,9 @@ input {border-radius: 6px; text-align: center;}
 
 #resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
 
-	
+
+
+/* Abaixo não é usado e foi obitido de outro projeto */	
 /* Definição da Tabela que Mostra os Resultados */
 #tabelaresultados {color: white; border: 1px solid gray; max-width: 80%; min-width: 40%;
 				   margin-left: auto; margin-right: auto; margin-top: 20px;}
