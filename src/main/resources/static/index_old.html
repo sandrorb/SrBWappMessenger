@@ -36,26 +36,17 @@
 
 	<div id="form">
 		<form>
-		
-		  <table id="idtelefones">
-		  	<tr>
-		  		<td class="tdlabel"><label>De:</label></td>
-		  		<td><input type="text" id="from" name="from" value="+14155238886"></td>
-		  	</tr>
-		  	<tr>
-		  		<td class="tdlabel"><label>Para:</label></td>
-		  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
-		  	</tr>		  
-		  </table>
-		  
+		  <br>
+		  <label>Número de Origem da Mensagem</label><br>
+		  <!-- <input type="text" id="from" name="from" value="+14155238886" readonly><br><br>-->
+		  <input type="text" id="from" name="from" value="+14155238886"><br><br>
+		  <label>Número de Destino da Mensagem</label><br>
+		  <input type="text" id="to" name="to" value="+553183349238"><br><br>
 		  <label>Mensagem</label><br>
 		  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
-		  
 		</form>
-		
 		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Mensagem</button>
-		<div id="resposta"></div>
-			
+		<div id="resposta"></div>		
 	</div>
 	
 <br>
