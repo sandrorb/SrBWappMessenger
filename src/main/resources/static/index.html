@@ -1,70 +1,84 @@
 <!doctype html>
 <html lang="en">
+
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Aplicativo de Mensagens (Sandro Boschetti)</title>
-    
-    <style>
-    	input {width: 50%; background-color: yellow;}
-    	.form-control {width: 20%;} 
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandro Boschetti</title>
+    <link rel="icon" type="imagem/png" href="aperto-de-mao.png" />
+    <!-- Importação Bootstrap além da que está ao fim do body -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+          rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
   </head>
-  
-  
+
   <body>
   
-	<form>
-	  <br>
-	  <label>Número de Origem</label><br>
-	  <input type="text" id="phoneNumberFrom" name="phoneNumberFrom" value="+14155238886" readonly="readonly"><br><br>
-	  <label>Número de Destino</label><br>
-	  <input type="text" id="phoneNumberTo" name="phoneNumberTo" value="+553183349238"><br><br>
-	  <label>Mensagem</label><br>
-	  <input type="text" id="message" name="message" value="Teste Twilio: Mensagem enviada do formulario web"><br><br>		  
-	</form>
+  	<div id="cabecalho">
+  		Teste
+  	</div>
 
-<button type="button" onclick="enviar()">Enviar</button>
+	<div id="form">
+		<form>
+		  <br>
+		  <label>Número de Origem da Mensagem</label><br>
+		  <input type="text" id="from" name="from" value="+14155238886" readonly><br><br>
+		  <label>Número de Destino da Mensagem</label><br>
+		  <input type="text" id="to" name="to" value="+553183349238"><br><br>
+		  <label>Mensagem</label><br>
+		  <input type="text" id="msg" name="msg" value="Teste: mensagem sendo enviado do formulário web"><br><br>		  
+		</form>
+		<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Teste</button> 
+	</div>
+	
+<br>
+Dados de Retorno da Operação de Envio:<br>
+<div id="resposta">
 
-<input type="text" id="msgRetorno" name="msgRetorno" class="form-control">
+</div>	
+	
+	
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXX FUNÇOES JAVASCRIPT XXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
-<script type="text/javascript">	
-		
-		function enviar(){
-			
-	        var phoneNumberFrom = $("#phoneNumberFrom").val();
-	        var   phoneNumberTo = $("#phoneNumberTo").val();
-	        var   message = $("#message").val();
-	        
-	        $("#msgRetorno").val(message);
+	<script type="text/javascript">
+	
+
+		function teste(){
+
+	        var phoneNumberFrom = $("#from").val();
+	        var phoneNumberTo = $("#to").val();
+	        var message = $("#msg").val();
 	        
  	        $.ajax({
 	        	method: "POST",
-	        	url: "http://localhost:8080/srbteste",
+	        	url: "sendmsg",
 	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
-	        	dataType: "json",
 	        	success: function(response){
-	        		$("#msgRetorno").val(response);
+		        		$("#resposta").text(response);
 	        	}
 	        }).fail(function(xhr, status, errorThrown){
-	        	alert("Erro ao enviar dados: " + xhr.responseText);
+	        	alert("SrB: Erro ao salvar dados: " + xhr.responseText);
 	           });
 		}
-</script>
 
+/*----------------------------------------------------------------------*/		
+	</script>
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXX FUNÇOES JAVASCRIPT XXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+	<!-- Importação Bootstrap além da que já está no head -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    	    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    	    crossorigin="anonymous"></script>
     <!-- Importação do JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   </body>
 </html>

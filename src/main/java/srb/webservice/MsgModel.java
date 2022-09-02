@@ -1,15 +1,8 @@
 package srb.webservice;
 
-import java.io.Serializable;
-
-
-public class MsgModel implements Serializable{
+public class MsgModel {
 	
-	public MsgModel() {
-		System.out.println("Dentro do construtor de MsgModel");
-	}
-	
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 	
 	private String phoneNumberFrom;
 	private String phoneNumberTo;

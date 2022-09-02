@@ -2,9 +2,12 @@ package srb.webservice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,14 +30,36 @@ public class Wapp {
 		return sb.toString();
 	}
 
-	@PostMapping(value = "/teste")
+	
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	
+	
+	@RequestMapping(value = "/teste", method = RequestMethod.GET)
+	public String testeGet(@RequestParam(value = "nome") String nome) {
+		System.out.println("YYYYYYYYYYYYY" + nome);
+		return nome;
+	}		
+	
+	@PostMapping(path  = "/teste", value = "/teste")
 	@ResponseBody
-	public ResponseEntity<String> resposta(@RequestParam String nome) {
+	public ResponseEntity<String> testePost(@RequestBody MsgModel msgModel) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Telefone: " + nome );
-		System.out.println(nome);
+		sb.append("       De: " + msgModel.getPhoneNumberFrom());
+		sb.append("     Para: " + msgModel.getPhoneNumberTo());
+		sb.append(" Mensagem: " + msgModel.getMessage());
+		System.out.println(sb.toString());
 		return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);
 	}
+	
+	@PostMapping(path  = "/enviaMsg")
+	@ResponseBody
+	public ResponseEntity<String> meuMetodoComQQNome(@RequestBody MsgModel msgModel) {
+		System.out.println(msgModel.toString());
+		return new ResponseEntity<String>(msgModel.toString(), HttpStatus.OK);
+	}	
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	
+		
+	
 	
 	/*
 	 * Ao tentar passar os 3 parâmetros pelo postman, os sinais de + dos telefones desaparecem.
@@ -42,14 +67,26 @@ public class Wapp {
 	 * public String teste(@RequestParam String phoneNumberFrom, @RequestParam String phoneNumberTo, @RequestParam String message) {
 	 * public String teste(@RequestBody MsgModel msgModel) {
 	 */
-	@PostMapping(value = "/srbteste")
+	@PostMapping(value = "/sendmsg")
 	@ResponseBody
-	public ResponseEntity<String> enviaMsg(@RequestBody MsgModel msgModel) {
+	public ResponseEntity<String> sendMsg(@RequestBody MsgModel msgModel) {
 		
-		System.out.println("Dentro do método enviaMsg do controller");
+		String resposta = "";
+		resposta = enviaMensagem(msgModel);
+		//resposta = msgModel.getMessage();
+		
+		return new ResponseEntity<String>(resposta, HttpStatus.OK);	
+	}
 	
+
+	
+	
+
+	public String enviaMensagem(MsgModel msgModel) {
+		
 		String accountSid = System.getenv("ACCOUNT_SID");
 		String authToken = System.getenv("AUTH_TOKEN");
+		
 		
 		Twilio.init(accountSid, authToken);
 
@@ -70,7 +107,6 @@ public class Wapp {
 		}catch(ApiException e) {
 			sb.append("ERRO!!!\n");
 			sb.append(e.toString() + "\n");
-			return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);
 		}
 		
 		sb.append("  De = " + phoneNumberOrigin.toString() + "\n");
@@ -81,8 +117,7 @@ public class Wapp {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
 		}
 
-		
-		return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);	
+		return sb.toString();
 	}
 	
 	

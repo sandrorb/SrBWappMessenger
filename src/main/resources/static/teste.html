@@ -24,22 +24,11 @@
 		<form>
 		  <br>
 		  <label>Número de Identificação</label><br>
-		  <input type="text" id="id" name="id" value="" readonly="readonly"><br><br>
+		  <input type="text" id="id" name="id" value="123"><br><br>
 		  <label>Nome do Usuário</label><br>
-		  <input type="text" id="nome" name="nome" value=""><br><br>
+		  <input type="text" id="nome" name="nome" value="Sandro Boschetti"><br><br>
 		</form>
-		<button type="button" class="btn btn-light buttonsalvarnovo" onclick="salvar()">Salvar</button>
-		<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="novo()">Novo</button> 
-		<br>
-		<hr>
-
-		<div id="resultados">
-			<table id="tabelaresultados" >
-				<thead><tr><th>Id</th><th>Nome do Usuário</th> <th>Data de Cadastro</th>  <th>Deleção</th></tr></thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
+		<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Teste</button> 
 	</div>
 	
 	
@@ -49,30 +38,8 @@
 
 	<script type="text/javascript">
 	
-		function novo(){
-			$("#id").val("");
-			$("#nome").val("");
-		}
 
-/*----------------------------------------------------------------------*/
-		
-		function deletar(id){
-		        $.ajax({
-	        	method: "DELETE",
-	        	url: "delete",
-	        	data: "id="+id,
-	        	//contentType: "application/json; charset=utf-8",
-	        	success: function(response){
-	        		$('#'+id).remove();
-	        	}
-	        }).fail(function(xhr, status, errorThrown){
-	        	alert("Erro deletar usurário: " +id+ " Motivo: "+ xhr.responseText);
-	           }); 
-		}
-
-/*----------------------------------------------------------------------*/	
-	
-		function salvar(){
+		function teste(){
 
 	        var nome = $("#nome").val();
 	        
@@ -82,37 +49,13 @@
 	        	data: JSON.stringify( {nome : nome} ),
 	        	contentType: "application/json; charset=utf-8",
 	        	success: function(response){
-		        		alert("xxxx");
+		        		alert(response);
 	        	}
 	        }).fail(function(xhr, status, errorThrown){
-	        	alert("Erro ao salvar dados: " + xhr.responseText);
+	        	alert("SrB: Erro ao salvar dados: " + xhr.responseText);
 	           });
 		}
 
-/*----------------------------------------------------------------------*/
-		
-		function buscarTodos(){
-			$.ajax({
-	        	method: "POST",
-	        	url: "buscartodos",
-	        	contentType: "application/json; charset=utf-8",
-	        	success: function(response){
-	        		//$("#resultados").html(JSON.stringify(response));
-	        		//$('#tabelaresultados').text("");
-	        		//$('#tabelaresultados').append("<thead><tr><th>Id</th><th>Nome</th><th>Apagar</th></tr></thead>");\
-					$('#tabelaresultados > tbody > tr').remove();
-	        		for (var i=0; i<response.length; i++){
-	           			var date = response[i].date;
-	        			if (date === null) {date = "";} 
-	        			$('#tabelaresultados > tbody').append(
-	        				'<tr id="'+response[i].id+'"><td>'+response[i].id+'</td><td class="tdnome">'+response[i].nome+'</td> <td>'+date+'</td> <td> <button type="button" class="btn btn-danger buttondeletar" onclick="deletar('+response[i].id+')">Deletar</button>  </td></tr>'
-	        			);
-	        		}
-	        	}
-	        }).fail(function(xhr, status, errorThrown){
-	        	alert("Erro ao salvar dados: " + xhr.responseText);
-	        }); 
-		}
 /*----------------------------------------------------------------------*/		
 	</script>
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
