@@ -72,9 +72,9 @@ public class Wapp {
 	public ResponseEntity<String> sendMsg(@RequestBody MsgModel msgModel) {
 		
 		String resposta = "";
-		//resposta = enviaMensagem(msgModel);
-		resposta = msgModel.getMessage();
-		System.out.println("xxxxx");
+		resposta = enviaMensagem(msgModel);
+		//resposta = msgModel.getMessage();
+		//System.out.println("Executado o endpoint /sendmsg");
 		
 		return new ResponseEntity<String>(resposta, HttpStatus.OK);	
 	}
