@@ -72,8 +72,9 @@ public class Wapp {
 	public ResponseEntity<String> sendMsg(@RequestBody MsgModel msgModel) {
 		
 		String resposta = "";
-		resposta = enviaMensagem(msgModel);
-		//resposta = msgModel.getMessage();
+		//resposta = enviaMensagem(msgModel);
+		resposta = msgModel.getMessage();
+		System.out.println("xxxxx");
 		
 		return new ResponseEntity<String>(resposta, HttpStatus.OK);	
 	}

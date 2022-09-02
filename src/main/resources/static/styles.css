@@ -18,7 +18,9 @@ input {border-radius: 6px; text-align: center;}
 
 #to {width: 200px; text-align: center}
 
-#msg {border-radius: 6px; }
+#msg {border-radius: 6px;}
+
+#resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
 
 	
 /* Definição da Tabela que Mostra os Resultados */

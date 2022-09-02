@@ -33,16 +33,14 @@
 		  <input type="text" id="to" name="to" value="+553183349238"><br><br>
 		  <label>Mensagem</label><br>
 		  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
-		  <!--  <input type="text" id="msg" name="msg" value="Teste: mensagem sendo enviado do formulário web"><br><br> -->
 		</form>
-		<button type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Mensagem</button> 
+		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Mensagem</button>
+		<div id="resposta"></div>		
 	</div>
 	
 <br>
-Dados de Retorno da Operação de Envio:<br>
-<div id="resposta">
 
-</div>	
+
 	
 	
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
@@ -50,8 +48,11 @@ Dados de Retorno da Operação de Envio:<br>
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 	<script type="text/javascript">
-	
 
+		function habilita(){
+			$("#btnenviar").prop("disabled",false);
+		}	
+		
 		function teste(){
 
 	        var phoneNumberFrom = $("#from").val();
@@ -64,7 +65,18 @@ Dados de Retorno da Operação de Envio:<br>
 	        	data: JSON.stringify( {phoneNumberFrom : phoneNumberFrom, phoneNumberTo : phoneNumberTo, message : message} ),
 	        	contentType: "application/json; charset=utf-8",
 	        	success: function(response){
-		        		$("#resposta").text(response);
+	        		
+		        		$("#btnenviar").prop("disabled",true);
+		        		setTimeout(function() { habilita() }, 6000);
+		        		
+		        		$("#resposta").html("Mensagem enviada: <br>" + response);
+		        		$("#resposta").show(0);
+		        		$("#resposta").delay(3000).fadeOut(3000);
+		        		//$("#btnenviar").prop("disabled",false);
+		        		//$("#resposta").text("teste");
+		        		//$("#resposta").hide(0);
+		        		//$("#resposta").delay(3000);
+		        		//$("#resposta").html("");
 	        	}
 	        }).fail(function(xhr, status, errorThrown){
 	        	alert("SrB: Erro ao salvar dados: " + xhr.responseText);
