@@ -1,6 +1,6 @@
 package srb;
 
-import readexcel.ReadExcel;
+import srb.readexcel.ReadExcel;
 import srb.sendmsg.SendMsg;
 
 public class Main {
@@ -9,7 +9,8 @@ public class Main {
 
 //		SendMsg.execute();
 //		ReadExcel.execute();
-
+		
+		ReadExcel.getInstance().print();
 	}
 
 }

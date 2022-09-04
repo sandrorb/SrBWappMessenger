@@ -1,5 +1,13 @@
 package srb.webservice;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +19,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.twilio.Twilio;
 import com.twilio.exception.ApiException;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+
+import srb.readexcel.ReadExcel;
 
 @RestController
 public class Wapp {
@@ -120,7 +131,23 @@ public class Wapp {
 
 		return sb.toString();
 	}
+
 	
+	 @PostMapping("/upload")
+	 @ResponseBody
+	  public ResponseEntity< List<ClienteContato> > uploadFile(@RequestParam("file") MultipartFile file) {
+	      String content = "";
+	      List<ClienteContato> clientes = new ArrayList<ClienteContato>();
+	      try {
+			InputStream is = file.getInputStream();
+//			content = ReadExcel.getInstance().toString(is);
+			clientes = ReadExcel.getInstance().getClientes(is);
+	      } catch (IOException e) {
+	    	  e.printStackTrace();
+	      }
+	      System.out.println(content);
+	      return ResponseEntity.status(HttpStatus.OK).body(clientes);
+	  }
 	
 }
 
