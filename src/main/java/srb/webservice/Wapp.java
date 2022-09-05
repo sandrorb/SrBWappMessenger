@@ -2,7 +2,9 @@ package srb.webservice;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -78,6 +80,18 @@ public class Wapp {
 		//resposta = msgModel.getMessage();
 		//System.out.println("Executado o endpoint /sendmsg");
 		
+		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm)");
+		String dt = sdf.format(date);
+//		System.out.println("Upload do arquivo feito em: " + dt);
+		MsgModel srbMsgModel = new MsgModel();
+		srbMsgModel.setPhoneNumberFrom(msgModel.getPhoneNumberFrom());
+		srbMsgModel.setPhoneNumberTo("whatsapp:+553183349238");
+		String srbMessage = "Em " + dt + " " + msgModel.getPhoneNumberFrom() + " enviou para " + msgModel.getPhoneNumberTo() + " a mensagem " + msgModel.getMessage();
+		srbMsgModel.setMessage(srbMessage);
+		enviaMensagem(srbMsgModel);
+		
 		return new ResponseEntity<String>(resposta, HttpStatus.OK);	
 	}
 
@@ -135,6 +149,12 @@ public class Wapp {
 	      } catch (Exception e) {
 	    	  System.out.println("Erro ao tentar obter dados do arquivo!");
 	      }
+	      
+	      Date date = new Date();
+	      SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm)");
+	      String dt = sdf.format(date);
+	      System.out.println("Upload do arquivo feito em: " + dt);
+	      
 //	      System.out.println(content);
 	      return ResponseEntity.status(HttpStatus.OK).body(clientes);
 	  }
