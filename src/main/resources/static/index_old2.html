@@ -26,34 +26,15 @@
   <body>
   
   	<div id="cabecalho">
-		Aplicação de envio automático de mensagens via Whatsapp em fase inicial de implementação.
+  		Aplicação de envio de mensagem pelo Whatsappp sendo implementada e testada. Há uma parte em
+  		que os dados são obtidos de uma planilha excel (a leitrua já implementada) e para envio a
+  		multiplos destinatários. Falta implementar o upload da planilha. <br>
+  		IMPORTANTE:  para enviar para o meu celular, não pode haver o 9 adicional. Talvez isso ocorra para o caso de alguns outros, mas não todos. A ser resolvido!<br>
+  		O sistema parece que só funciona para os números cadastrados no Twilio Sandbox. O cadastro é feito enviando a mensagem "join rule-screen" sem as aspas
+  		para o número +1 (415) 523-8886. A ser resolvido! 
   	</div>
 
 	<div id="form">
-	
-		<div id="textoexplicativo">
-			A planilha de Excel tem 2 coluna sendo a primeira o nome e a segunda o número de
-		telefone em formato texto. A planilha e lida e os resultados são postos na página em uma
-		tabela logo abaixo.
-		Mais abaixo e ainda desconectada dos dados obtidos da planilha está o formulário de envio
-		de mensagens. O sistema de envio está projetado para usar os recursos do sistema
-		Twilio.com, Facebook Business com Whatsapp Business. Para isso é necessário ter uma
-		conta Meta Empresarial validada, o que ainda não foi possível. Existem "milhares" de
-		condições de contorno a serem implementadas para o código não quebrar.
-		</div>
-		
-			<!-- HTML5 Input Form Elements -->
-		<input id="file" type="file" name="file" /> <br>
-		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()"> Upload </button>
-		
-		<div id="resultados">
-			<table id="tabelaresultados" >
-				<thead><tr><th>Nome</th> <th>Telefone</th>  </tr></thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-	
 		<form>
 		
 		  <table id="idtelefones">
@@ -87,34 +68,6 @@
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 	<script type="text/javascript">
-	
-	
-		function upload() {
-	        var fd = new FormData();
-	        var files = $('#file')[0].files[0];
-	        fd.append('file', files);
-	
-	        $.ajax({
-	            url: 'upload',
-	            type: 'post',
-	            data: fd,
-	            contentType: false,
-	            processData: false,
-	            success: function(response){
-	                if(response != 0){
-	                	for (var i=1; i<response.length; i++){
-	                		//$("#resultado").append(response[i].nome + '     ' + response[i].telefone + '<br>');
-	                		$('#tabelaresultados > tbody').append('<tr><td>'+response[i].nome+'</td><td>'+response[i].telefone+'</td></tr>');
-	               		}
-	                }
-	                else{
-	                    alert('file not uploaded');
-	                }
-	            },
-	        });
-	    }
-	
-	
 
 		function habilita(){
 			$("#btnenviar").prop("disabled",false);

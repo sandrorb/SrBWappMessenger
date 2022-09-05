@@ -9,7 +9,7 @@ body {text-align: center; color: #F2F3F4; background-color: #283747;
 
 #form {margin: auto; margin-top: 1%; text-align: center;
 	        background-color: #1F618D; width: 90%; border-radius: 10px;
-	        padding: 20px; padding-top: 5px; padding-bottom: 30px}
+	        padding: 20px; padding-top: 30px; padding-bottom: 30px}
 
 label {color: #EEEEEE;}
 input {border-radius: 6px; text-align: center;}
@@ -22,7 +22,8 @@ input {border-radius: 6px; text-align: center;}
 
 #resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
 
-#idtelefones {color: white; margin-left: auto; margin-right: auto; margin-top: 20px;}
+#idtelefones {color: white; margin-left: auto;
+              border: 1px solid gray; margin-right: auto; margin-top: 20px;}
 
 .tdlabel {text-align: right;}
 
@@ -44,5 +45,31 @@ td {background-color: #191970; color: #CCCCCC; padding: 1px 10px;}
 
 .buttonsalvarnovo {margin: 0px 5px; padding: 2px 10px;}
 
+/*#btnFileUpload {width: 600px;}*/
+/*::file-selector-button{
+	  background: gray;
+  color: black;
+  margin-left: 0px;
+  width: 200px;
+  border-radius: 6px;
+}*/
+ 	::-webkit-file-upload-button {
+  background: gray;
+  color: black;
+  margin-left: 0px;
+  width: 200px;
+  border-radius: 6px;
+}
 
-*/
+/* Definição da Tabela que Mostra os Resultados */
+#tabelaresultados {color: white; border: 1px solid gray; max-width: 80%; min-width: 40%;
+				   margin-left: auto; margin-right: auto; margin-top: 20px;}
+th, td{border-bottom: 1px solid gray; border-top: 1px solid gray; border-collapse: collapse;}
+th {background-color: #000050; color: #A9A9A9;}
+td {background-color: #191970; color: #CCCCCC; padding: 1px 10px;}
+.tdnome {text-align: left; padding: 0px 10px;}
+
+#upload-button {margin: 10px;}
+
+#textoexplicativo {margin-bottom: 20px;}
+
