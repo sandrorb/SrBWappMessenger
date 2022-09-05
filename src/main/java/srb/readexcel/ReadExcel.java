@@ -43,7 +43,7 @@ public class ReadExcel {
 		Sheet sheet = wb.getSheet("Dados");
 		for (int i=0; i<sheet.getPhysicalNumberOfRows();i++) {
 			final Row row = sheet.getRow(i);
-			System.out.format("Local: %-35s  %-20s\n", row.getCell(0), row.getCell(1));
+			System.out.format("%-35s  %-20s\n", row.getCell(0), row.getCell(1));
 			ClienteContato cliente = new ClienteContato();
 			cliente.setNome(row.getCell(0).toString());
 			cliente.setTelefone(row.getCell(1).toString());
@@ -59,7 +59,7 @@ public class ReadExcel {
 		
 		for (int i=0; i<sheet.getPhysicalNumberOfRows();i++) {
 			final Row row = sheet.getRow(i);
-			System.out.format("%-35s  %-20s\n", row.getCell(0), row.getCell(1));
+			System.out.format("Local: %-35s  %-20s\n", row.getCell(0), row.getCell(1));
 			sb.append(String.format("%-20s\n", row.getCell(0), row.getCell(1)));
 		}	
 		return sb.toString();
