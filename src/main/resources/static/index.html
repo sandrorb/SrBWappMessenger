@@ -59,26 +59,30 @@
 			</table>
 		</div>
 	
+	<div id="wrapperMsg">
 		<form>
-		
-		  <table id="idtelefones">
-		  	<tr>
-		  		<td class="tdlabel"><label>De:</label></td>
-		  		<td><input type="text" id="from" name="from" value="+14155238886"></td>
-		  	</tr>
-		  	<tr>
-		  		<td class="tdlabel"><label>Para:</label></td>
-		  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
-		  	</tr>		  
-		  </table>
+		<div id="wrapperTelefones">			
+			  <table id="idtelefones">
+			  	<tr>
+			  		<td class="tdlabel"><label>De:</label></td>
+			  		<td><input type="text" id="from" name="from" value="+14155238886"></td>
+			  	</tr>
+			  	<tr>
+			  		<td class="tdlabel"><label>Para:</label></td>
+			  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
+			  	</tr>		  
+			  </table>
+		  </div>
 		  
-		  <label>Mensagem</label><br>
+		  <label id="labelMsg" for="msg">Mensagem</label><br>
 		  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
 		  
 		</form>
 		
 		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="sendmsg()">Enviar Mensagem</button>
 		<div id="resposta"></div>
+		
+	</div>
 			
 	</div>
 	
@@ -114,21 +118,30 @@
 	    			
 	                if(response != 0){
 	                	
+	                	$('#tabelaresultados > tbody').empty();
+	                	
 						var x = document.getElementById("resultados");
 						x.style.display = "block";
+						$('#tabelaresultados').show();
 						
 	                	for (var i=1; i<response.length; i++){
 	                		//$("#resultado").append(response[i].nome + '     ' + response[i].telefone + '<br>');
 	                		$('#tabelaresultados > tbody').append('<tr><td>'+response[i].nome+'</td><td>'+response[i].telefone+'</td></tr>');
 	               		}
 	                	
+		    			$("#progresso").html("");
+		    			progresso.style.display = "none";
+	                	
 	                }
 	                else{
-	                    alert('Falha: falha no corregamento ou leitura dos dados!');
+	                    //alert('Falha: falha no corregamento ou leitura dos dados!');
+	                    $('#tabelaresultados > tbody').empty();
+	                    $('#tabelaresultados').hide();
+	                    
+		    			$("#progresso").html("<span style='color: orange'> Erro ao carregar ou ler o arquivo!</span>");
+		    			//progresso.style.display = "none";
 	                }
-	                
-	    			$("#progresso").html("");
-	    			progresso.style.display = "none";
+	              
 	                
 	            },
 	        });
