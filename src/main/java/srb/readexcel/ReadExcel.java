@@ -78,7 +78,9 @@ public class ReadExcel {
 		try {
 			workbook = new XSSFWorkbook(is);
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("Falha ao tentar obter Workbook!");
+			System.exit(0);
 		}
 		return workbook;
 	}
@@ -88,7 +90,9 @@ public class ReadExcel {
 		try {
 			file = new FileInputStream(new File(fileName));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("Falha ao tentar obter InputStream!");
+			System.exit(0);
 		}
 		return file;
 	}

@@ -132,6 +132,8 @@ public class Wapp {
 			clientes = ReadExcel.getInstance().getClientes(is);
 	      } catch (IOException e) {
 	    	  e.printStackTrace();
+	      } catch (Exception e) {
+	    	  System.out.println("Erro ao tentar obter dados do arquivo!");
 	      }
 //	      System.out.println(content);
 	      return ResponseEntity.status(HttpStatus.OK).body(clientes);

@@ -28,8 +28,8 @@ Exception in thread "main" com.twilio.exception.AuthenticationException: Usernam
 //	ENVIO DE SMS
 //	Twilio.setEdge("sydney");
 //	Message message = Message.creator(
-//		    new PhoneNumber("+15558881234"),  // To number
-//		    new PhoneNumber("+15559994321"),  // From number
+//		    new PhoneNumber("+99999"),  // To number
+//		    new PhoneNumber("+88888"),  // From number
 //		    "Hello world!"                    // SMS body
 //		).create();
 //

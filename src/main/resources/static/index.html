@@ -34,8 +34,8 @@
 	
 		<div id="textoexplicativo">
 			A planilha de Excel tem 2 colunas sendo a primeira o nome e a segunda o número de
-		telefone em formato texto. A planilha é lida e os resultados são postos na página em uma
-		tabela logo abaixo.
+		telefone em formato texto. Os dados devem estar em uma aba com nome Dados. 
+		A planilha é lida e os resultados são postos na página em uma tabela logo abaixo.
 		Mais abaixo, e ainda desconectada dos dados obtidos da planilha, está o formulário de envio
 		de mensagens. O sistema de envio está projetado para usar os recursos do sistema
 		Twilio.com, Facebook Business com Whatsapp Business. Para isso é necessário ter uma
@@ -100,7 +100,6 @@
 			progresso.style.display = "block";
 			$("#progresso").html("Processando...");
     
-			
 	        var fd = new FormData();
 	        var files = $('#file')[0].files[0];
 	        fd.append('file', files);
@@ -122,12 +121,15 @@
 	                		//$("#resultado").append(response[i].nome + '     ' + response[i].telefone + '<br>');
 	                		$('#tabelaresultados > tbody').append('<tr><td>'+response[i].nome+'</td><td>'+response[i].telefone+'</td></tr>');
 	               		}
-		    			$("#progresso").html("");
-		    			progresso.style.display = "none";
+	                	
 	                }
 	                else{
-	                    alert('Falha: arquivo não carregado!');
+	                    alert('Falha: falha no corregamento ou leitura dos dados!');
 	                }
+	                
+	    			$("#progresso").html("");
+	    			progresso.style.display = "none";
+	                
 	            },
 	        });
 	    }
