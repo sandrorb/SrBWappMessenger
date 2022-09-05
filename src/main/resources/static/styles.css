@@ -79,8 +79,10 @@ a:hover {color: yellow; /* background-color: yellow; */}
 
 #labelMsg {font-size: 16pt; color: #CCCCCC;}
 
-#msg {border-radius: 6px; width: 300px;}
+#msg {border-radius: 6px; width: 300px; padding: 5px;}
 
+/*#formMsg {margin: 0px;}*/
+#btnenviar {margin-bottom: 10px; margin-top: 10px;}
 
 #resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
 

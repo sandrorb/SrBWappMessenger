@@ -79,7 +79,7 @@
 		</div> <!-- div wrapperCarregarArquvio -->
 	
 		<div id="wrapperMsg">
-			<form>
+			<!-- <form id="formMsg"> -->
 				<div id="wrapperTelefones">			
 					  <table id="tabelatelefones">
 					  	<tr>
@@ -94,10 +94,10 @@
 				  </div>
 				  
 				  <label id="labelMsg" for="msg">Mensagem</label><br>
-				  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
-			</form>
+				  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br>
+			<!--  </form> -->
 			<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="sendmsg()">Enviar Mensagem</button>
-			<div id="resposta"></div>
+			<div id="resposta" style="display: none;"></div>
 		</div><!-- div wrapperMsg -->
 			
 	</div><!-- div corpo -->
