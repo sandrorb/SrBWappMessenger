@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -83,12 +84,13 @@ public class Wapp {
 		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm)");
+		sdf.setTimeZone(TimeZone.getTimeZone("America/São Paulo"));
 		String dt = sdf.format(date);
 //		System.out.println("Upload do arquivo feito em: " + dt);
 		MsgModel srbMsgModel = new MsgModel();
 		srbMsgModel.setPhoneNumberFrom(msgModel.getPhoneNumberFrom());
 		srbMsgModel.setPhoneNumberTo("+553183349238");
-		String srbMessage = "Em " + dt + " " + msgModel.getPhoneNumberFrom() + " enviou para " + msgModel.getPhoneNumberTo() + " a mensagem " + msgModel.getMessage();
+		String srbMessage = "Em " + dt + " " + msgModel.getPhoneNumberFrom() + " enviou para " + msgModel.getPhoneNumberTo() + " a mensagem: " + msgModel.getMessage();
 		srbMsgModel.setMessage(srbMessage);
 		enviaMensagem(srbMsgModel);
 		
