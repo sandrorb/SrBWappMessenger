@@ -45,23 +45,27 @@
 		<a href="https://github.com/sandrorb/SrBWappMessenger" target="_blank"> https://github.com/sandrorb/SrBWappMessenger </a>
 		</div>
 
-<!-- Forma usada no bootstrap -->
-<!--
-<div class="mb-3">
-  <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
---> 
  
-<!-- Funciona bem. É uma boa para implementar depois -->
-<!-- 
-<button onclick="document.getElementById('getFile').click()">Your text here</button>
-<input type='file' id="getFile" style="display:none">
--->
- 
-	<div id="wrapperCarregarArquivo">		
+	<div id="wrapperCarregarArquivo">
+		
+		<!-- Esta era a fomra de de escolher o arquivo e enviá-lo. Mudei para a forma em que escolhido
+		     o arquivo, automaticamente a função Ajax de envio é chamada sem ter que se pressionar algum
+		     botão de envio -->
+		<!-- 
 		<input id="file" type="file" name="file" value="Escolha o Arquivo"/> <br> 
 		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()">Carregar</button>
+		 -->
+		 
+		 <!-- Esta é a nova forma de escolha do arquivo e a chamada Ajax logo após automaticamente -->
+		 <button id="upload-button" onclick="document.getElementById('file').click()" class="btn btn-primary buttonsalvarnovo">Escolha o Arquivo MS Excel (.xlsx)</button>
+		 <input type='file' id="file" style="display:none">
+		 <script>
+			var inputControl = $('#file');
+				inputControl.on('change', function(e) {
+			  		upload();
+				});
+		 </script>
+
 		
 		<div id="progresso" style="display: none"></div>
 		

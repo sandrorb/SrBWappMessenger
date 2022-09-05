@@ -34,3 +34,35 @@ Exception in thread "main" com.twilio.exception.AuthenticationException: Usernam
 //		).create();
 //
 //		System.out.println(message.getSid());	
+
+
+<!-- Forma usada no bootstrap -->
+<!--
+<div class="mb-3">
+  <label for="formFile" class="form-label">Default file input example</label>
+  <input class="form-control" type="file" id="formFile">
+</div>
+--> 
+ 
+<!-- Funciona bem. É uma boa para implementar depois -->
+<!-- 
+<button onclick="document.getElementById('getFile').click()">Your text here</button>
+<input type='file' id="getFile" style="display:none">
+-->
+
+<!-- 
+<input id="file" type="file">
+
+<script>
+var inputControl = $('#file');
+inputControl.on('change', function(e) {
+  upload();
+});
+inputControl.on('change', function(e) {
+  setTimeout(function(obj)
+  {
+    alert(obj.value);
+  },500, this);
+});
+</script>
+ -->

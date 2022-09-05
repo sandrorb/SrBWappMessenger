@@ -11,6 +11,8 @@ body {text-align: center; color: #F2F3F4; background-color: #283747;
 	        background-color: #1F618D; width: 90%; border-radius: 10px;
 	        padding: 20px;}
 
+#textoexplicativo {margin-bottom: 20px;}
+
 label {color: #EEEEEE;}
 input {border-radius: 6px; text-align: center;}
 
@@ -31,6 +33,17 @@ input {border-radius: 6px; text-align: center;}
   margin-top: 10px; margin-bottom: 10px;
 }
 
+
+/* Definição da Tabela que Mostra os Resultados */
+#tabelaresultados {color: white; border: 1px solid gray; max-width: 80%; min-width: 40%;
+				   margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: 10px; }
+
+th, td{border-bottom: 1px solid gray; border-top: 1px solid gray; border-collapse: collapse;}
+th {background-color: #000050; color: #A9A9A9;}
+td {background-color: #191970; color: #CCCCCC; padding: 1px 10px;}
+.tdnome {text-align: left; padding: 0px 10px;}
+
+
 #wrapperCarregarArquivo {
   overflow: auto;
   border-radius: 10px;
@@ -38,8 +51,9 @@ input {border-radius: 6px; text-align: center;}
   margin-left: auto; margin-right: auto;
   min-width: 30%; max-width: 60%;
   margin-top: 10px; margin-bottom: 10px;
-  padding-top: 20px;
 }
+
+#upload-button {margin: 10px; margin-top: 10px; margin-bottom: 10px;}
 
 #resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
 
@@ -81,20 +95,6 @@ a:hover {color: yellow; /* background-color: yellow; */}
   border-radius: 6px;
 }
 
-/* Definição da Tabela que Mostra os Resultados */
-#tabelaresultados {color: white; border: 1px solid gray; max-width: 80%; min-width: 40%;
-				   margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 20px; }
-th, td{border-bottom: 1px solid gray; border-top: 1px solid gray; border-collapse: collapse;}
-th {background-color: #000050; color: #A9A9A9;}
-td {background-color: #191970; color: #CCCCCC; padding: 1px 10px;}
-.tdnome {text-align: left; padding: 0px 10px;}
-
-#upload-button {margin: 10px;}
-
-#textoexplicativo {margin-bottom: 20px;}
-
-
-#formFile {width: 600px; margin-left: auto; margin-right: auto;}
 
 
 
