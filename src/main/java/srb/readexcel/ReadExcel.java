@@ -18,11 +18,13 @@ import srb.webservice.ClienteContato;
 public class ReadExcel {
 	
 	private String fileName = ".\\teste.xlsx";
-	
+
+/***********************************************/
+/*Implementação do Padrão de Projeto Singleton */
+/***********************************************/	
 	private static ReadExcel instance = null;
 	
 	public ReadExcel() {
-
 	}
 	
 	public static ReadExcel getInstance() {
@@ -31,9 +33,10 @@ public class ReadExcel {
 		}
 		return instance;
 	}
+/***********************************************/
+
 	
-///////////////////////////////////////////////////////////////////////	
-	
+
 	public List<ClienteContato> getClientes(InputStream is){
 		List<ClienteContato> clientes = new ArrayList<ClienteContato>();
 		Workbook wb = getWorkbook(is);
@@ -56,7 +59,7 @@ public class ReadExcel {
 		
 		for (int i=0; i<sheet.getPhysicalNumberOfRows();i++) {
 			final Row row = sheet.getRow(i);
-			System.out.format("Local: %-35s  %-20s\n", row.getCell(0), row.getCell(1));
+			System.out.format("%-35s  %-20s\n", row.getCell(0), row.getCell(1));
 			sb.append(String.format("%-20s\n", row.getCell(0), row.getCell(1)));
 		}	
 		return sb.toString();

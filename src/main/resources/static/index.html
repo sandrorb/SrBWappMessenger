@@ -72,7 +72,7 @@
 		  
 		</form>
 		
-		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="teste()">Enviar Mensagem</button>
+		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="sendmsg()">Enviar Mensagem</button>
 		<div id="resposta"></div>
 			
 	</div>
@@ -120,7 +120,7 @@
 			$("#btnenviar").prop("disabled",false);
 		}	
 		
-		function teste(){
+		function sendmsg(){
 
 	        var phoneNumberFrom = $("#from").val();
 	        var phoneNumberTo = $("#to").val();

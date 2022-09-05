@@ -1,21 +1,14 @@
 package srb.webservice;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +23,9 @@ import srb.readexcel.ReadExcel;
 
 @RestController
 public class Wapp {
-	
+
+/* Este endpoint serve como teste e responde com uma mensagem simples um mensagem
+ * qualquer que o usuário nos envie para nosso número de Whatsapp */
 	@PostMapping(value = "/wapp")
 	public String resposta(@RequestParam String From, @RequestParam String Body) {
 		String numTelefone = From.substring(From.indexOf(":")+1);
@@ -39,11 +34,9 @@ public class Wapp {
 		sb.append("Esta é uma mensagem automática criada e enviada por um webservice escrito em Java por Sandro Boschetti.\n");
 		sb.append("Você digitou: " + Body);
 		return sb.toString();
-	}
+	}	
 
-	
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	
-	
+/*
 	@RequestMapping(value = "/teste", method = RequestMethod.GET)
 	public String testeGet(@RequestParam(value = "nome") String nome) {
 		System.out.println("YYYYYYYYYYYYY" + nome);
@@ -60,16 +53,14 @@ public class Wapp {
 		System.out.println(sb.toString());
 		return new ResponseEntity<String>(sb.toString(), HttpStatus.OK);
 	}
-	
+
 	@PostMapping(path  = "/enviaMsg")
 	@ResponseBody
 	public ResponseEntity<String> meuMetodoComQQNome(@RequestBody MsgModel msgModel) {
 		System.out.println(msgModel.toString());
 		return new ResponseEntity<String>(msgModel.toString(), HttpStatus.OK);
-	}	
-
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	
-		
+	}
+*/		
 	
 	
 	/*
@@ -89,11 +80,8 @@ public class Wapp {
 		
 		return new ResponseEntity<String>(resposta, HttpStatus.OK);	
 	}
-	
 
-	
-	
-
+// Este método não é endpoint. Serve como auxílio de um endpoint
 	public String enviaMensagem(MsgModel msgModel) {
 		
 		String accountSid = System.getenv("ACCOUNT_SID");
@@ -125,9 +113,9 @@ public class Wapp {
 		sb.append("Para = " + phoneNumberDest.toString() + "\n");
 		sb.append("Mensagem: " + bodyMsg+"\n");
 		
-		if(msg != null) {
+//		if(msg != null) {
 //			sb.append("\n\n\n" + msg.toString()+"\n\n");
-		}
+//		}
 
 		return sb.toString();
 	}
@@ -136,7 +124,7 @@ public class Wapp {
 	 @PostMapping("/upload")
 	 @ResponseBody
 	  public ResponseEntity< List<ClienteContato> > uploadFile(@RequestParam("file") MultipartFile file) {
-	      String content = "";
+//	      String content = "";
 	      List<ClienteContato> clientes = new ArrayList<ClienteContato>();
 	      try {
 			InputStream is = file.getInputStream();
@@ -145,7 +133,7 @@ public class Wapp {
 	      } catch (IOException e) {
 	    	  e.printStackTrace();
 	      }
-	      System.out.println(content);
+//	      System.out.println(content);
 	      return ResponseEntity.status(HttpStatus.OK).body(clientes);
 	  }
 	
