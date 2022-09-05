@@ -96,6 +96,11 @@
 	
 		function upload() {
 			
+        	var progresso = document.getElementById("progresso");
+			progresso.style.display = "block";
+			$("#progresso").html("Processando...");
+    
+			
 	        var fd = new FormData();
 	        var files = $('#file')[0].files[0];
 	        fd.append('file', files);
@@ -107,11 +112,6 @@
 	            contentType: false,
 	            processData: false,
 	            success: function(response){
-	    			
-	            	var progresso = document.getElementById("progresso");
-	    			progresso.style.display = "block";
-	    			$("#progresso").html("Processando...");
-            
 	    			
 	                if(response != 0){
 	                	
