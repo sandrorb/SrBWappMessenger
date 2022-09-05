@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Sandro Boschetti</title>
+    <title>SrB Wapp Messenger</title>
     
 	<link rel="icon" type="imagem/png" href="aperto-de-mao.png" />
 	
@@ -47,11 +47,11 @@
 		
 			<!-- HTML5 Input Form Elements --> 
 		<input id="file" type="file" name="file" value="Escolha o Arquivo"/> <br> 
-		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()" data-buttonText="SrB Teste"> Carregar </button>
+		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()">Carregar</button>
 		
 		<div id="resultados" style="display: none">
 			<table id="tabelaresultados" >
-				<thead><tr><th>Nome</th> <th>Telefone</th>  </tr></thead>
+				<thead> <tr> <th>Nome</th> <th>Telefone</th>  </tr> </thead>
 				<tbody>
 				</tbody>
 			</table>
@@ -113,7 +113,7 @@
 	               		}
 	                }
 	                else{
-	                    alert('file not uploaded');
+	                    alert('Falha: arquivo não carregado!');
 	                }
 	            },
 	        });
@@ -151,7 +151,7 @@
 		        		//$("#resposta").html("");
 	        	}
 	        }).fail(function(xhr, status, errorThrown){
-	        	alert("SrB: Erro ao salvar dados: " + xhr.responseText);
+	        	alert("Falha: Erro ao tentar enviar os dados: " + xhr.responseText);
 	           });
 		}
 
