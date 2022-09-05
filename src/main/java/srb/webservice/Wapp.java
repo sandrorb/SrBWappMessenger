@@ -35,6 +35,24 @@ public class Wapp {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Olá, " + numTelefone + "!\n");
 		sb.append("Esta é uma mensagem automática criada e enviada por um webservice escrito em Java por Sandro Boschetti.\n");
+		
+		
+		
+		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)");
+		//Quando horário local é 17:13 o horário da data é 20:13. Pus o setTimeZone que não está funcionando.
+		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
+		String dt = sdf.format(date);
+		MsgModel srbMsgModel = new MsgModel();
+		srbMsgModel.setPhoneNumberFrom(From); //+14155238886
+		srbMsgModel.setPhoneNumberTo("+553183349238");
+		String srbMessage = "Em " + dt + " " + From + " enviou uma requisição (mensagem qualquer) para o endpoint /wapp.";
+		srbMsgModel.setMessage(srbMessage);
+		enviaMensagem(srbMsgModel);		
+		
+		
+		
 		sb.append("Você digitou: " + Body);
 		return sb.toString();
 	}	
