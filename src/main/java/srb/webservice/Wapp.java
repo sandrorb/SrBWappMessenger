@@ -49,7 +49,8 @@ public class Wapp {
 		srbMsgModel.setPhoneNumberTo("+553183349238");
 		String srbMessage = "Em " + dt + " " + From + " enviou uma requisição (mensagem qualquer) para o endpoint /wapp.";
 		srbMsgModel.setMessage(srbMessage);
-		enviaMensagem(srbMsgModel);		
+		String msg = enviaMensagem(srbMsgModel);
+		System.out.println(msg);
 		
 		
 		
