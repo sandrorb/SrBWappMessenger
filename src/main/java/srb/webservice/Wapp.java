@@ -85,7 +85,7 @@ public class Wapp {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)");
 		//Quando horário local é 17:13 o horário da data é 20:13. Pus o setTimeZone que não está funcionando.
-		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao Paulo"));
+		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 		String dt = sdf.format(date);
 //		System.out.println("Upload do arquivo feito em: " + dt);
 		MsgModel srbMsgModel = new MsgModel();
