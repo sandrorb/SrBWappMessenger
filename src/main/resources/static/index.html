@@ -44,9 +44,13 @@
 		O código pode ser visto no github:
 		<a href="https://github.com/sandrorb/SrBWappMessenger" target="_blank"> https://github.com/sandrorb/SrBWappMessenger </a>
 		</div>
-		
+
+
+	<div id="wrapperCarregarArquivo">		
 			<!-- HTML5 Input Form Elements --> 
-		<input id="file" type="file" name="file" value="Escolha o Arquivo"/> <br> 
+			<!-- <label for="file" >Selecione o Arquivo</label><br>
+		<input id="file" type="file" name="file" value="Escolha o Arquivo"style="visibility:hidden;"/> <br>  -->
+		<input id="file" type="file" name="file" value="Escolha o Arquivo" /> <br> 
 		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()">Carregar</button>
 		
 		<div id="progresso" style="display: none"></div>
@@ -58,37 +62,31 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 	
 	<div id="wrapperMsg">
 		<form>
-		<div id="wrapperTelefones">			
-			  <table id="idtelefones">
-			  	<tr>
-			  		<td class="tdlabel"><label>De:</label></td>
-			  		<td><input type="text" id="from" name="from" value="+14155238886"></td>
-			  	</tr>
-			  	<tr>
-			  		<td class="tdlabel"><label>Para:</label></td>
-			  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
-			  	</tr>		  
-			  </table>
-		  </div>
-		  
-		  <label id="labelMsg" for="msg">Mensagem</label><br>
-		  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
-		  
+			<div id="wrapperTelefones">			
+				  <table id="idtelefones">
+				  	<tr>
+				  		<td class="tdlabel"><label>De:</label></td>
+				  		<td><input type="text" id="from" name="from" value="+14155238886"></td>
+				  	</tr>
+				  	<tr>
+				  		<td class="tdlabel"><label>Para:</label></td>
+				  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
+				  	</tr>		  
+				  </table>
+			  </div>
+			  
+			  <label id="labelMsg" for="msg">Mensagem</label><br>
+			  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br><br>
 		</form>
-		
 		<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="sendmsg()">Enviar Mensagem</button>
 		<div id="resposta"></div>
-		
 	</div>
 			
-	</div>
-	
-<br>
-
-
+	</div><!-- div de form -->
 	
 	
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
