@@ -49,6 +49,8 @@
 		<input id="file" type="file" name="file" value="Escolha o Arquivo"/> <br> 
 		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()">Carregar</button>
 		
+		<div id="progresso" style="display: none"></div>
+		
 		<div id="resultados" style="display: none">
 			<table id="tabelaresultados" >
 				<thead> <tr> <th>Nome</th> <th>Telefone</th>  </tr> </thead>
@@ -93,6 +95,7 @@
 	
 	
 		function upload() {
+			
 	        var fd = new FormData();
 	        var files = $('#file')[0].files[0];
 	        fd.append('file', files);
@@ -104,13 +107,23 @@
 	            contentType: false,
 	            processData: false,
 	            success: function(response){
+	    			
+	            	var progresso = document.getElementById("progresso");
+	    			progresso.style.display = "block";
+	    			$("#progresso").html("Processando...");
+            
+	    			
 	                if(response != 0){
+	                	
+						var x = document.getElementById("resultados");
+						x.style.display = "block";
+						
 	                	for (var i=1; i<response.length; i++){
 	                		//$("#resultado").append(response[i].nome + '     ' + response[i].telefone + '<br>');
-	                		  var x = document.getElementById("resultados");
-	                		  x.style.display = "block";
 	                		$('#tabelaresultados > tbody').append('<tr><td>'+response[i].nome+'</td><td>'+response[i].telefone+'</td></tr>');
 	               		}
+		    			$("#progresso").html("");
+		    			progresso.style.display = "none";
 	                }
 	                else{
 	                    alert('Falha: arquivo não carregado!');
