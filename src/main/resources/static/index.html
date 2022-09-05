@@ -47,7 +47,7 @@
 		<input id="file" type="file" name="file" /> <br>
 		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()"> Upload </button>
 		
-		<div id="resultados">
+		<div id="resultados" style="display: none">
 			<table id="tabelaresultados" >
 				<thead><tr><th>Nome</th> <th>Telefone</th>  </tr></thead>
 				<tbody>
@@ -105,6 +105,8 @@
 	                if(response != 0){
 	                	for (var i=1; i<response.length; i++){
 	                		//$("#resultado").append(response[i].nome + '     ' + response[i].telefone + '<br>');
+	                		  var x = document.getElementById("resultados");
+	                		  x.style.display = "block";
 	                		$('#tabelaresultados > tbody').append('<tr><td>'+response[i].nome+'</td><td>'+response[i].telefone+'</td></tr>');
 	               		}
 	                }
