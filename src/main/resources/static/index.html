@@ -45,12 +45,22 @@
 		<a href="https://github.com/sandrorb/SrBWappMessenger" target="_blank"> https://github.com/sandrorb/SrBWappMessenger </a>
 		</div>
 
-
+<!-- Forma usada no bootstrap -->
+<!--
+<div class="mb-3">
+  <label for="formFile" class="form-label">Default file input example</label>
+  <input class="form-control" type="file" id="formFile">
+</div>
+--> 
+ 
+<!-- Funciona bem. É uma boa para implementar depois -->
+<!-- 
+<button onclick="document.getElementById('getFile').click()">Your text here</button>
+<input type='file' id="getFile" style="display:none">
+-->
+ 
 	<div id="wrapperCarregarArquivo">		
-			<!-- HTML5 Input Form Elements --> 
-			<!-- <label for="file" >Selecione o Arquivo</label><br>
-		<input id="file" type="file" name="file" value="Escolha o Arquivo"style="visibility:hidden;"/> <br>  -->
-		<input id="file" type="file" name="file" value="Escolha o Arquivo" /> <br> 
+		<input id="file" type="file" name="file" value="Escolha o Arquivo"/> <br> 
 		<button id="upload-button" class="btn btn-primary buttonsalvarnovo" onclick="upload()">Carregar</button>
 		
 		<div id="progresso" style="display: none"></div>
