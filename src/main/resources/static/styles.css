@@ -29,6 +29,9 @@ input {border-radius: 6px; text-align: center;}
 
 #idtelefones td {padding: 5px;}
 
+a {color: #85C1E9; text-decoration:none}
+a:hover {color: yellow; /* background-color: yellow; */}
+
 /*#btnFileUpload {width: 600px;}*/
 /*::file-selector-button{
 	  background: gray;
