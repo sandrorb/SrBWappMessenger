@@ -87,7 +87,7 @@ public class Wapp {
 //		System.out.println("Upload do arquivo feito em: " + dt);
 		MsgModel srbMsgModel = new MsgModel();
 		srbMsgModel.setPhoneNumberFrom(msgModel.getPhoneNumberFrom());
-		srbMsgModel.setPhoneNumberTo("whatsapp:+553183349238");
+		srbMsgModel.setPhoneNumberTo("+553183349238");
 		String srbMessage = "Em " + dt + " " + msgModel.getPhoneNumberFrom() + " enviou para " + msgModel.getPhoneNumberTo() + " a mensagem " + msgModel.getMessage();
 		srbMsgModel.setMessage(srbMessage);
 		enviaMensagem(srbMsgModel);
