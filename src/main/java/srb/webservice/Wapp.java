@@ -37,7 +37,7 @@ public class Wapp {
 		sb.append("Esta é uma mensagem automática criada e enviada por um webservice escrito em Java por Sandro Boschetti.\n");
 		
 		
-		
+		/***** NÃO ESTÁ FUNCIONANDO ******/
 		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)");
