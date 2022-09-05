@@ -45,8 +45,8 @@ public class Wapp {
 		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 		String dt = sdf.format(date);
 		MsgModel srbMsgModel = new MsgModel();
-		srbMsgModel.setPhoneNumberFrom(From); //+14155238886
-		srbMsgModel.setPhoneNumberTo("whatsapp:+553183349238");
+		srbMsgModel.setPhoneNumberFrom(numTelefone); //+14155238886
+		srbMsgModel.setPhoneNumberTo("+553183349238");
 		String srbMessage = "Em " + dt + " " + From + " enviou uma requisição (mensagem qualquer) para o endpoint /wapp.";
 		srbMsgModel.setMessage(srbMessage);
 		String msg = enviaMensagem(srbMsgModel);
