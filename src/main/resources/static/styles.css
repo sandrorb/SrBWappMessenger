@@ -84,7 +84,7 @@ a:hover {color: yellow; /* background-color: yellow; */}
 /*#formMsg {margin: 0px;}*/
 #btnenviar {margin-bottom: 10px; margin-top: 10px;}
 
-#resposta { margin: auto; margin-top: 30px; max-width: 80%; min-width: 40%; text-align: center;}
+#resposta { margin: auto; margin-top: 10px; max-width: 80%; min-width: 40%; text-align: center;}
 
 
 
