@@ -34,10 +34,10 @@ public class Wapp {
 		String numTelefone = From.substring(From.indexOf(":")+1);
 		StringBuilder sb = new StringBuilder();
 		sb.append("Olá, " + numTelefone + "!\n");
-		sb.append("Esta é uma mensagem automática criada e enviada por um webservice escrito em Java por Sandro Boschetti.\n");
+		sb.append("Esta é uma mensagem automática criada e enviada por um"
+				+ "webservice escrito em Java por Sandro Boschetti.\n");
 		
 		
-		/***** NÃO ESTÁ FUNCIONANDO ******/
 		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)");
@@ -47,7 +47,8 @@ public class Wapp {
 		MsgModel srbMsgModel = new MsgModel();
 		srbMsgModel.setPhoneNumberFrom("+14155238886");
 		srbMsgModel.setPhoneNumberTo("+553183349238");
-		String srbMessage = "Em " + dt + " " + numTelefone + " enviou uma requisição (mensagem qualquer) para o endpoint /wapp.\n" + "Mensagem: " + Body;
+		String srbMessage = "Em " + dt + " " + numTelefone + " enviou uma requisição "
+			            	+ "(mensagem qualquer) para o endpoint /wapp.\n" + "Mensagem: " + Body;
 		srbMsgModel.setMessage(srbMessage);
 		String msg = enviaMensagem(srbMsgModel);
 		System.out.println(msg);
