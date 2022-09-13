@@ -38,7 +38,7 @@ public class Wapp {
 				+ "webservice escrito em Java por Sandro Boschetti.\n");
 		
 		
-		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico
+		//Código temporário para controle e testes: envio de cópia da mensagem enviada para um telefone específico.
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy (HH:mm:ss)");
 		//Quando horário local é 17:13 o horário da data é 20:13. Pus o setTimeZone que não está funcionando.
