@@ -20,8 +20,11 @@ a:hover {color: yellow; /* background-color: yellow; */}
 	        background-color: #1F618D; width: 90%; border-radius: 10px;
 	        padding: 20px;}
 
-#textoexplicativo {margin-bottom: 20px;}
+#textoexplicativo {margin-bottom: 20px; text-align: justify; margin:
+                   auto; width: 80%; font-size: 12pt;}
 
+/*font-family: 'Courier New', monospace;*/
+#msgTemplate{color: yellow; margin-bottom: 20px; font-family: monospace, monospace;} 
 
 #wrapperCarregarArquivo {
   overflow: auto;

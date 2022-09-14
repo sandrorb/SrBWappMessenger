@@ -35,12 +35,33 @@
 		<div id="textoexplicativo">
 			A planilha de Excel tem 2 colunas sendo a primeira o nome e a segunda o número de
 		telefone em formato texto. Os dados devem estar em uma aba com nome Dados. 
-		A planilha é lida e os resultados são postos na página em uma tabela logo abaixo.
+		A planilha é lida e os resultados são postos na página em uma tabela logo abaixo.<p>
+		
 		Mais abaixo, e ainda desconectada dos dados obtidos da planilha, está o formulário de envio
 		de mensagens. O sistema de envio está projetado para usar os recursos do sistema
-		Twilio.com, Facebook Business com Whatsapp Business. Para isso é necessário ter uma
-		conta Meta Empresarial validada, o que ainda não foi possível. Existem "milhares" de
+		Twilio.com, Facebook Business Manager (FBM) com WhatsApp Business Account (WABA).<p>
+		
+		Foi criada e validada uma conta em nome da <a href="http://www.sbsys.com.br">
+		Boschetti Física em Saúde Ltda. (BfS)</a>.
+		Um número foi adquirido no sistema Twilio e por meio desse sistema foi criada e configurada uma
+		WABA vinculada a conta da BfS no FBM. <p>
+		
+		Contas WAB não podem enviar mensagens livres não solicitadas. Só podem enviar mensagens
+		não solicitadas de templates pré aprovados. Mensagens livres podem ser enviadas após o
+		cliente enviar mensagem à WABA. Foi criado um template de teste que foi aprovado rapidamente.
+		<div id="msgTemplate">
+		Olá, {{1}}!<br>
+		O senhor(a) tem agendado um exame de {{2}} conosco em {{3}} às {{4}}.<br>
+		Solicitamos a gentileza de nos confirmar sua presença na data e horário marcados.<br>
+		Digite 1 para confirmar e 2 para cancelar o agendamento.<br>
+		</div>
+		
+		Os números entre parênteses são variáveis que devem ser ajustadas programaticamente.<p>
+		
+		
+		Existem "milhares" de
 		condições de contorno a serem implementadas para o código não quebrar. 
+		
 		O código pode ser visto no github:
 		<a href="https://github.com/sandrorb/SrBWappMessenger" target="_blank"> https://github.com/sandrorb/SrBWappMessenger </a>
 		</div>
@@ -85,11 +106,28 @@
 					  	<tr>
 					  		<td class="tdlabel"><label>De:</label></td>
 					  		<!-- era +14155238886 do SandBox -->
-					  		<td><input type="text" id="from" name="from" value="+13392334123"></td> 
+					  		<td><input type="text" id="from" name="from" value="+13392334123" readonly></td> 
 					  	</tr>
 					  	<tr>
 					  		<td class="tdlabel"><label>Para:</label></td>
 					  		<td><input type="text" id="to" name="to" value="+553183349238"></td>
+					  		
+					  		<!-- <td> 
+								<select id="to" name="to">
+							    	<option value="+553183349238">+553183349238</option>
+							    	<option value="+553196449238">+553196449238</option>
+							 	</select>
+							</td> -->
+							 	
+							 	<!-- Nesta teste o twilio responde uma msg de erro mas entrega a msg -->
+							<!-- <td>
+							 	 <input list="to" name="to">
+								  <datalist id="to">
+								    <option value="+553183349238">
+								    <option value="+553196449238">
+								  </datalist>
+							 </td>-->
+					  		
 					  	</tr>		  
 					  </table>
 				  </div>
