@@ -82,9 +82,10 @@
 			 <input type='file' id="file" style="display:none">
 			 <script>
 				var inputControl = $('#file');
-					inputControl.on('change', function(e) {
-				  		upload();
-					});
+				inputControl.on('change', function(e) {
+			  		upload();
+			  		$("#file")[0].value = '';//para limpar o #file para que o onchange perceba a escolha de um arquivo mesmo que seja o mesmo arquivo (mesmo nome).
+				});
 			 </script>
 	
 			

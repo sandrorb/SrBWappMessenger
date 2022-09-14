@@ -167,6 +167,7 @@ public class Wapp {
 			InputStream is = file.getInputStream();
 //			content = ReadExcel.getInstance().toString(is);
 			clientes = ReadExcel.getInstance().getClientes(is);
+			is.close();
 	      } catch (IOException e) {
 	    	  e.printStackTrace();
 	      } catch (Exception e) {
