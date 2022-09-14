@@ -41,26 +41,46 @@ public class ReadExcel {
 		List<ClienteContato> clientes = new ArrayList<ClienteContato>();
 		Workbook wb = getWorkbook(is);
 		Sheet sheet = wb.getSheet("Dados");
+		
+		String nome = null;
+		String tel = null;
+		ClienteContato cliente;
+		
 		for (int i=0; i<sheet.getPhysicalNumberOfRows();i++) {
 			final Row row = sheet.getRow(i);
-			System.out.format("%-35s  %-20s\n", row.getCell(0), row.getCell(1));
-			ClienteContato cliente = new ClienteContato();
-			cliente.setNome(row.getCell(0).toString());
-			cliente.setTelefone(row.getCell(1).toString());
-			clientes.add(cliente);
+			nome = row.getCell(0).toString().trim();
+			tel = row.getCell(1).toString().trim();
+			
+			if(nome != "" && nome != null && tel != "" && tel != null) {
+				cliente = new ClienteContato();
+				cliente.setNome(nome);
+				cliente.setTelefone(tel);
+				clientes.add(cliente);
+				System.out.format("%-35s  %-20s\n", nome, tel);
+			}
 		}
+		
 		return clientes;
 	}
+	
+	
 	
 	public String toString(Workbook wb) {
 		
 		StringBuilder sb = new StringBuilder();
 		Sheet sheet = wb.getSheet("Dados");
 		
+		String nome = null;
+		String tel = null;
+		
 		for (int i=0; i<sheet.getPhysicalNumberOfRows();i++) {
 			final Row row = sheet.getRow(i);
-			System.out.format("Local: %-35s  %-20s\n", row.getCell(0), row.getCell(1));
-			sb.append(String.format("%-20s\n", row.getCell(0), row.getCell(1)));
+			nome = row.getCell(0).toString().trim();
+			tel = row.getCell(1).toString().trim();
+			if(nome != "" && nome != null && tel != "" && tel != null) {
+				System.out.format("Local: %-35s  %-20s\n", nome, tel);
+				sb.append(String.format("%-20s\n", nome, tel));
+			}
 		}	
 		return sb.toString();
 	}
