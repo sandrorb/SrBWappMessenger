@@ -82,7 +82,7 @@ a:hover {color: yellow; /* background-color: yellow; */}
 
 #labelMsg {font-size: 16pt; color: #CCCCCC;}
 
-#msg {border-radius: 6px; width: 300px; padding: 5px;}
+#msg {border-radius: 6px; width: 350px; padding: 5px;}
 
 /*#formMsg {margin: 0px;}*/
 #btnenviar {margin-bottom: 10px; margin-top: 10px;}

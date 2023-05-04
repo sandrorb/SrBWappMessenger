@@ -134,7 +134,12 @@
 				  </div>
 				  
 				  <label id="labelMsg" for="msg">Mensagem</label><br>
-				  <textarea id="msg" name="msg" cols="40" rows="5">Teste: mensagem sendo enviada a partir de formulário web.</textarea><br>
+				  <textarea id="msg" name="msg" cols="50" rows="8">
+Olá, {{1}}!
+O senhor(a) tem agendado um exame de {{2}} conosco em {{3}} às {{4}}.
+Solicitamos a gentileza de nos confirmar sua presença na data e horário marcados.
+Digite 1 para confirmar e 2 para cancelar o agendamento.
+				  </textarea><br>
 			<!--  </form> -->
 			<button id="btnenviar" type="button" class="btn btn-primary buttonsalvarnovo" onclick="sendmsg()">Enviar Mensagem</button>
 			<div id="resposta" style="display: none;"></div>
